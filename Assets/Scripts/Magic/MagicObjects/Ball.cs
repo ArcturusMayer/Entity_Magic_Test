@@ -55,9 +55,27 @@ public class Ball : MonoBehaviour
         this.effect = effect;
         this.control = control;
         this.root = root;
-        this.dir = dir;
+
+        if (control.formMod.Equals("Fury"))
+        {
+            this.dir = new Vector2(dir.x + (Random.Range(-0.05f, 0.05f)), dir.y + (Random.Range(-0.05f, 0.05f)));
+            this.mana = mana * 1.2f;
+            this.speed *= 0.8f;
+        }
+        else if(control.formMod.Equals("Fear"))
+        {
+            this.dir = new Vector2(dir.x + (Random.Range(-0.05f, 0.05f)), dir.y + (Random.Range(-0.05f, 0.05f)));
+            this.mana = mana * 0.8f;
+            this.speed *= 1.2f;
+        }
+        else
+        {
+            this.dir = dir;
+            this.mana = mana * 0.8f;
+            this.speed *= 0.8f;
+        }
+
         this.player = player;
-        this.mana = mana;
         this.fade = this.effect.fade;
     }
 }

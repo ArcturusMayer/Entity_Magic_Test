@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ShieldController : MagicController
 {
-    public ShieldController(MagicController spell1, MagicController spell2, MagicController spell3, MagicEffect effect, GameObject prefab) : base(spell1, spell2, spell3, effect)
+    public ShieldController(MagicController spell1, MagicController spell2, MagicController spell3, MagicEffect effect, GameObject prefab, string formModif) : base(spell1, spell2, spell3, effect, formModif)
     {
         spellPrefab = prefab;
     }

@@ -12,13 +12,15 @@ public abstract class MagicController
     public GameObject localSpell;
     public float mana;
     public MagicEffect spellEffect;
+    public string formMod;
 
-    public MagicController(MagicController spell1, MagicController spell2, MagicController spell3, MagicEffect effect)
+    public MagicController(MagicController spell1, MagicController spell2, MagicController spell3, MagicEffect effect, string formModif)
     {
         nextSpell1 = spell1;
         nextSpell2 = spell2;
         nextSpell3 = spell3;
         spellEffect = effect;
+        this.formMod = formModif;
     }
 
     public abstract void Start(GameObject root, Vector2 direction, float manaCost, MagicRenderer player);

@@ -12,6 +12,7 @@ public class Shield : MonoBehaviour
     public Vector2 dir;
     public MagicEffect effect;
     public float mana;
+    public float shieldPower = 0.1f;
 
     // Start is called before the first frame update
     void Start()
@@ -44,7 +45,7 @@ public class Shield : MonoBehaviour
         {
             float coef = 2.0f * (mana / 200 + 0.5f);
             effect.doEffect(collision.gameObject.GetComponent<MagicRenderer>(), coef, root, player, mana);
-            mana -= mana * 0.1f;
+            mana -= mana * shieldPower;
             control.StartNext(collision.gameObject, dir);
         }
     }
@@ -54,6 +55,30 @@ public class Shield : MonoBehaviour
         this.effect = effect;
         this.control = control;
         this.root = root;
+
+        if (control.formMod.Equals("Fury"))
+        {
+            player.mana += -mana * 0.2f;
+            fadeSpeed *= 2.0f;
+            shieldPower *= 0.5f;
+        }
+        else if (control.formMod.Equals("Fear"))
+        {
+            player.mana += -mana * 0.2f;
+            fadeSpeed *= 0.5f;
+            shieldPower *= 2.0f;
+        }
+        else if (control.formMod.Equals("Sad"))
+        {
+            player.mana += mana * 0.5f;
+            fadeSpeed *= 2.0f;
+            shieldPower *= 2.0f;
+        }
+        else
+        {
+
+        }
+
         this.dir = dir;
         this.player = player;
         this.mana = mana;

@@ -7,12 +7,6 @@ public class HeroMagicController : MonoBehaviour
 {
     public MagicRenderer player;
 
-    public GameObject ringPrefab;
-    public GameObject shieldPrefab;
-    public GameObject wavePrefab;
-    public GameObject ballPrefab;
-    public GameObject pointPrefab;
-    public GameObject clotPrefab;
     public Text manaDisplay;
 
     private MagicController currentSpell;
@@ -46,7 +40,7 @@ public class HeroMagicController : MonoBehaviour
         {
             if (Time.timeScale > 0)
             {
-                currentSpell.Start(gameObject, Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position, ((Time.time - startTime < 2.0f) ? (((Time.time - startTime) / 4.0f) * 100 + 50) : (100)), player);
+                currentSpell.Start(gameObject, (Camera.main.ScreenToWorldPoint(Input.mousePosition) - gameObject.transform.position).normalized, ((Time.time - startTime < 2.0f) ? (((Time.time - startTime) / 4.0f) * 100 + 50) : (100)), player);
             }
         }
 
@@ -88,139 +82,37 @@ public class HeroMagicController : MonoBehaviour
         }
     }
 
-    public void SetHotkeySpell(int hotkey, string spellText)
+    public void SetHotkeySpell(int hotkey, MagicController spell)
     {
         switch (hotkey)
         {
             case 1:
-                spell1 = convertSpell(spellText, 0, -1);
+                spell1 = spell;
                 break;
             case 2:
-                spell2 = convertSpell(spellText, 0, -1);
+                spell2 = spell;
                 break;
             case 3:
-                spell3 = convertSpell(spellText, 0, -1);
+                spell3 = spell;
                 break;
             case 4:
-                spell4 = convertSpell(spellText, 0, -1);
+                spell4 = spell;
                 break;
             case 5:
-                spell5 = convertSpell(spellText, 0, -1);
+                spell5 = spell;
                 break;
             case 6:
-                spell6 = convertSpell(spellText, 0, -1);
+                spell6 = spell;
                 break;
             case 7:
-                spell7 = convertSpell(spellText, 0, -1);
+                spell7 = spell;
                 break;
             case 8:
-                spell8 = convertSpell(spellText, 0, -1);
+                spell8 = spell;
                 break;
             case 9:
-                spell9 = convertSpell(spellText, 0, -1);
+                spell9 = spell;
                 break;
         }
-    }
-
-    public MagicController convertSpell(string spellText, int startIndex, int previousLevel)
-    {
-        MagicController spell = null;
-        int level = 0;
-        while (spellText.Substring(startIndex + level, 1) == "\t")
-        {
-            level++;
-        }
-
-        if (previousLevel < level) {
-            string effect = (spellText.Substring(spellText.IndexOf(' ', startIndex + level) + 1, spellText.IndexOf('\n', spellText.IndexOf(' ', startIndex + level) + 1) - (spellText.IndexOf(' ', startIndex + level) + 1)));
-
-            MagicController spellbuffer1 = null;
-            try
-            {
-                spellbuffer1 = convertSpell(spellText, spellText.IndexOf('\n', spellText.IndexOf(' ', startIndex + level) + 1) + 1, level);
-            }
-            catch
-            {
-
-            }
-            MagicController spellbuffer2 = null;
-            try
-            {
-                spellbuffer2 = convertSpell(spellText, spellText.IndexOf('\n', spellText.IndexOf('\n', spellText.IndexOf(' ', startIndex + level) + 1) + 1) + 1, level);
-            }
-            catch
-            {
-
-            }
-            MagicController spellbuffer3 = null;
-            try
-            {
-                spellbuffer3 = convertSpell(spellText, spellText.IndexOf('\n', spellText.IndexOf('\n', spellText.IndexOf('\n', spellText.IndexOf(' ', startIndex + level) + 1) + 1) + 1) + 1, level);
-            }
-            catch
-            {
-
-            }
-
-            switch (spellText.Substring(startIndex + level, spellText.IndexOf(' ', startIndex + level) - (startIndex + level)))
-            {
-                case "Shield":
-                    spell = new ShieldController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        shieldPrefab);
-                    break;
-                case "Ring":
-                    spell = new RingController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        ringPrefab);
-                    break;
-                case "Wave":
-                    spell = new WaveController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        wavePrefab);
-                    break;
-                case "Ball":
-                    spell = new BallController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        ballPrefab);
-                    break;
-                case "Point":
-                    spell = new PointController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        pointPrefab);
-                    break;
-                case "Clot":
-                    spell = new ClotController(spellbuffer1, spellbuffer2, spellbuffer3,
-                        getEffectByName(effect),
-                        clotPrefab);
-                    break;
-            }
-
-            return spell;
-        }
-        else
-        {
-            return spell;
-        }
-    }
-
-    private MagicEffect getEffectByName(string name)
-    {
-        switch (name)
-        {
-            case "tonus":
-                return new TonusEffect();
-                break;
-            case "blindly":
-                return new BlindlyEffect();
-                break;
-            case "anesthesia":
-                return new AnesthesiaEffect();
-                break;
-            case "wind":
-                return new WindEffect();
-                break;
-        }
-        return null;
     }
 }

@@ -51,6 +51,30 @@ public class Ring : MonoBehaviour
         this.effect = effect;
         this.control = control;
         this.root = root;
+
+        if (control.formMod.Equals("Fury"))
+        {
+            player.mana += -mana * 0.2f;
+            this.mana = mana * 1.5f;
+            speed *= 0.8f;
+        }
+        else if (control.formMod.Equals("Fear"))
+        {
+            player.mana += -mana * 0.2f;
+            this.mana = mana * 0.8f;
+            speed *= 1.5f;
+        }
+        else if (control.formMod.Equals("Sad"))
+        {
+            player.mana += mana * 0.5f;
+            this.mana = mana * 0.8f;
+            speed *= 0.8f;
+        }
+        else
+        {
+            this.mana = mana;
+        }
+
         this.dir = dir;
         this.player = player;
         this.mana = mana;

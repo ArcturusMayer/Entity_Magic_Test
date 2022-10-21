@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 679034363167259145}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.5, y: 1.5, z: 1}
   m_Children:
   - {fileID: 8800707430436692921}
   m_Father: {fileID: 0}
@@ -49,11 +49,15 @@ EdgeCollider2D:
   m_Offset: {x: 0, y: 0}
   m_EdgeRadius: 0
   m_Points:
-  - {x: -1.2282743, y: 1.2325577}
-  - {x: -0.6802902, y: 1.6123079}
-  - {x: -0.018003702, y: 1.7476608}
-  - {x: 0.65917253, y: 1.6163603}
-  - {x: 1.2227743, y: 1.233566}
+  - {x: -1.6598629, y: 1.2931315}
+  - {x: -0.96044415, y: 1.8697467}
+  - {x: -0.03314716, y: 2.0581017}
+  - {x: 0.9317548, y: 1.8813709}
+  - {x: 1.593789, y: 1.2184227}
+  m_AdjacentStartPoint: {x: 0, y: 0}
+  m_AdjacentEndPoint: {x: 0, y: 0}
+  m_UseAdjacentStartPoint: 0
+  m_UseAdjacentEndPoint: 0
 --- !u!114 &749376988975657608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,10 +70,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b22926822cdbcf04bb2d6a5eddbd6e94, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
+  fade: {r: 0, g: 0, b: 0, a: 0}
   speed: 5
   fadeSpeed: 1
   dir: {x: 0, y: 0}
   root: {fileID: 0}
+  mana: 0
 --- !u!1 &6595068340936371102
 GameObject:
   m_ObjectHideFlags: 0
@@ -116,6 +123,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -140,7 +148,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: b164632e5661b5b48a35bd2dcad0101b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 688399183720bf542bc966a00e0c5d5e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

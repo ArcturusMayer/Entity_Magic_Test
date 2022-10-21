@@ -9,7 +9,7 @@ Rigidbody2D:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5269095862082466910}
   m_BodyType: 0
-  m_Simulated: 1
+  m_Simulated: 0
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
   m_Mass: 1
@@ -137,12 +137,17 @@ PrefabInstance:
     - target: {fileID: 6689530064357667669, guid: d5b1dc73ee4d8de4ab21cbe4cece7189,
         type: 3}
       propertyPath: baseSpeed
-      value: 4
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 6689530064357667670, guid: d5b1dc73ee4d8de4ab21cbe4cece7189,
         type: 3}
       propertyPath: player
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 6689530064357667670, guid: d5b1dc73ee4d8de4ab21cbe4cece7189,
+        type: 3}
+      propertyPath: agroRadius
+      value: 20
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d5b1dc73ee4d8de4ab21cbe4cece7189, type: 3}

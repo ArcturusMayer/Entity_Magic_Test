@@ -9,7 +9,7 @@ public class SpellSetter : MonoBehaviour
     public Button spell;
     public Text setting;
     int hotkey = 0;
-    public string spellText;
+    public MagicController actualSpell;
     public string name;
 
     public bool isActive = false;
@@ -29,72 +29,72 @@ public class SpellSetter : MonoBehaviour
             {
                 hotkey = 1;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha2))
             {
                 hotkey = 2;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha3))
             {
                 hotkey = 3;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha4))
             {
                 hotkey = 4;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha5))
             {
                 hotkey = 5;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha6))
             {
                 hotkey = 6;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha7))
             {
                 hotkey = 7;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha8))
             {
                 hotkey = 8;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
             if (Input.GetKeyDown(KeyCode.Alpha9))
             {
                 hotkey = 9;
                 setting.text = hotkey.ToString();
-                controller.SetHotkeySpell(hotkey, spellText);
+                controller.SetHotkeySpell(hotkey, actualSpell);
                 isActive = !isActive;
             }
         }
     }
 
-    public void setSpell(string name, string spellText, int hotkeyIndex, HeroMagicController controller)
+    public void setSpell(string name, MagicController spell, int hotkeyIndex, HeroMagicController controller)
     {
         this.controller = controller;
-        this.spellText = spellText;
+        this.actualSpell = spell;
         hotkey = hotkeyIndex;
         this.name = name;
         this.spell.GetComponentInChildren<Text>().text = this.name;
